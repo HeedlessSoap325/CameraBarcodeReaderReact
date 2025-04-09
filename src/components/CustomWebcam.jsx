@@ -2,6 +2,18 @@ import Webcam from "react-webcam";
 import {useEffect, useRef, useState} from "react";
 import { BrowserMultiFormatReader } from "@zxing/browser";
 
+/**
+ * CustomWebcam.jsx
+ *
+ * Wird verwendet, um BarCodes von der Webcam einzulesen
+ * und dann in einen String umzuwandeln und diesen auszugeben.
+ *
+ * Mit Hilfe von https://blog.logrocket.com/using-react-webcam-capture-display-images/
+ * und https://github.com/zxing-js/browser erstellt.
+ *
+ * @author Mathis Fritz
+ * @version 1.0.0
+ */
 export default function CustomWebcam(){
     const webcamRef = useRef(null); //Referenz für die WebCam aufsetzen
     const [result, setResult] = useState(null); //Variable für das Resultat aufsetzen
