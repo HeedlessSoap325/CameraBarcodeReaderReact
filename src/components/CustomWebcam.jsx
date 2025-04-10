@@ -14,7 +14,7 @@ import { BrowserMultiFormatReader } from "@zxing/browser";
  * @author Mathis Fritz
  * @version 1.0.0
  */
-export default function CustomWebcam(){
+export default function CustomWebcam({setBarCode}){
     const webcamRef = useRef(null); //Referenz für die WebCam aufsetzen
     const [result, setResult] = useState(null); //Variable für das Resultat aufsetzen
 
@@ -33,6 +33,7 @@ export default function CustomWebcam(){
                     const result = await reader.decodeFromImageUrl(imageSrc); //Versuche, den Barcode anhand des gespeicherten Bilds herauszulesen
                     setResult(result.getText()); //Setze die result-variable auf den gelesenen Wert
                     //TODO aufrufen des Codes, um das Ergebnis zu dekodieren
+                    setBarCode(result.getText());
                 }catch (err) { //Wenn kein BarCode erkannt wurde...
                     setResult(null); //...dann ist das result null -> Leer
                 }
@@ -43,7 +44,7 @@ export default function CustomWebcam(){
 
     return(
         <div className="Web-Cam-Container"> {/*Container, um die Elemente zu gruppieren*/}
-            <Webcam ref={webcamRef}/> {/*Aufsetzen der Webkamera von "react-webcam"*/}
+            <Webcam height={visualViewport.height / 1.7} ref={webcamRef}/> {/*Aufsetzen der Webkamera von "react-webcam", höhe der Webcam auf ca. 58% setzen*/}
             <p>Barcode Result: {result || 'Scanning...'}</p> {/*Ausgeben des Resultats, bzw. anzeigen, dass nichts gefunden wurde*/}
         </div>
     );
