@@ -1,0 +1,22 @@
+.Web-Cam-Container{
+    border: black thin solid;
+    width: fit-content;
+}
+
+.out{
+    resize: none;
+}
+
+.out.barcode{
+    height: 15px;
+    overflow: hidden;
+    scroll-behavior: unset;
+}
+
+.out.decode{
+    scroll-behavior: unset;
+    height: auto;
+}
+
+
+
