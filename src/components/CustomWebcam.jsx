@@ -44,7 +44,11 @@ export default function CustomWebcam({setBarCode}){
 
     return(
         <div className="Web-Cam-Container"> {/*Container, um die Elemente zu gruppieren*/}
-            <Webcam height={visualViewport.height / 1.7} ref={webcamRef}/> {/*Aufsetzen der Webkamera von "react-webcam", höhe der Webcam auf ca. 58% setzen*/}
+            <Webcam
+                height={visualViewport.height / 1.7} /*Aufsetzen der Webkamera von "react-webcam", höhe der Webcam auf ca. 58% setzen*/
+                ref={webcamRef}
+                videoConstraints={{facingMode : "environment"}} /*Ausrichtedn der webcam, sodass, wenn möglich, die Hinterkamera benutzt wird*/
+            />
             <p>Barcode Result: {result || 'Scanning...'}</p> {/*Ausgeben des Resultats, bzw. anzeigen, dass nichts gefunden wurde*/}
         </div>
     );
