@@ -7,14 +7,16 @@ export default function Decoder({barcode}){
     });
 
     function decode(barcode){
+        if(barcode === ""){return "empty";}
         return barcode + "\n 2te \n 3te";
     }
 
     useEffect(()=>{
         setCodes({
             ...codes,
-            barcode: barcode
-        })
+            barcode: barcode,
+            decoded: decode(barcode)
+        });
     }, [barcode])
 
     return(
@@ -25,7 +27,6 @@ export default function Decoder({barcode}){
                 className={"out barcode"}
                 value={codes.barcode}
                 readOnly={true}/>
-
             <br/>
 
             <label htmlFor={"BarCodeDecode"}>Decoded barcode:</label>
