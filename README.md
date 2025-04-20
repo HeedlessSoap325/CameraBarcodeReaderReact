@@ -1,12 +1,26 @@
-# React + Vite
+# Beschreibung
+Dieses Projekt entstand im Rahmen einer Selbstlernaufgabe im Modul 114.  
+Das Ziel der Aufgabe war es, eine eigene Kodierung für einen Barcode zu erstellen und diese Kodierung in eine vorgegebene Java-Applikation zu implementieren.  
+Dieses Projekt ist lediglich eine Bonus-Applikation, die das Lesen und Dekodieren der Barcodes im Browser ermöglichen soll.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Verwendete Bibliotheken
+Dieses Projekt stützt sich auf drei Bibliotheken, die die zwei großen Aufgaben übernehmen:
+1. "react-webcam" für das Bedienen der Kamera
+2. "@zxing/browser" für das Auslesen des Barcodes aus einem Bild
+3. "gh-pages" für das Veröffentlichen der Webseite auf GitHub
 
-Currently, two official plugins are available:
+Beispiele für beide ersten Bibliotheken können [hier](https://blog.logrocket.com/using-react-webcam-capture-display-images/) und [hier](https://github.com/zxing-js/browser) gefunden werden.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Die Bibliotheken können mit diesem Befehl installiert werden:  
+``npm install react-webcam @zxing/browser gh-pages``
 
-## Expanding the ESLint configuration
+# Webseite
+Die Webseite habe ich mithilfe von gh-pages auf GitHub veröffentlicht, die Webseite kann [hier](https://heedlesssoap325.github.io/CameraBarcodeReaderReact/) gefunden werden.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Die Webseite benötigt Zugriff auf die Kamera und wählt, sofern möglich, die Rückkamera.  
+Es empfiehlt sich jedoch, die Webseite über den Computer aufzurufen, da die Handykamera oft nicht die beste Qualität hat.  
+Zudem ist die verwendete Bibliothek für das Lesen des Barcodes recht zickig, was die Lichtverhältnisse, Größe und Schärfe des Bilds angeht.
+
+# Funktion
+Das Projekt scannt in seiner Grundform lediglich den Barcode und gibt ihn dann aus.  
+In der ``Decoder.jsx`` Datei kann jedoch die Funktion der Dekodierung bearbeitet werden.
