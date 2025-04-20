@@ -38,7 +38,7 @@ export default function CustomWebcam({setBarCode}){
                     setResult(null); //...dann ist das result null -> Leer
                 }
             }
-        }, 500); //Wird alle 500 Millisekunden also 1/2 Sekunden ausgeführt
+        }, 100); //Wird alle 500 Millisekunden also 1/2 Sekunden ausgeführt
         return () => clearInterval(interval); //Beenden des Intervals
     }, []); //Beim Laden der Seite wird der Code ausgeführt
 
